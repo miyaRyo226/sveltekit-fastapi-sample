@@ -1,8 +1,27 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
 	"name": "Frontend",
-  "dockerComposeFile": "../../compose.dev.yml",
+  "dockerComposeFile": "../../compose.dev.yaml",
   "service": "frontend",
   "workspaceFolder": "/app/frontend",
-  "remoteUser": "node"
+"remoteUser": "node",
+"customizations": {
+	"vscode": {
+		"extensions": [
+			"dbaeumer.vscode-eslint",
+			"rvest.vs-code-prettier-eslint",
+			"wix.vscode-import-cost",
+			"steoates.autoimport",
+			"ms-python.vscode-pylance",
+			"EditorConfig.EditorConfig",
+			"hediet.vscode-drawio",
+			"mhutchie.git-graph",
+			"donjayamanne.githistory",
+			"eamodio.gitlens",
+			"donjayamanne.git-extension-pack",
+			"bradlc.vscode-tailwindcss",
+			"svelte.svelte-vscode"
+		]
+	}
+}
 }

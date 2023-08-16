@@ -7,10 +7,10 @@ services:
     tty: true
     ports:
       - 3000:3000
-    # volumes:
-    #   - type: bind
-    #     source: .
-    #     target: /app
+    volumes:
+      - type: bind
+        source: .
+        target: /app
     networks:
       - frontend-network
       - backend-network
@@ -36,6 +36,9 @@ services:
     image: postgres:15.4-alpine3.18
     ports:
       - 5432:5432
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     networks:
       - backend-network
       - database-network

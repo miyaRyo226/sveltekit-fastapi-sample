@@ -3,7 +3,7 @@
 {
 	"name": "Python 3",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "dockerComposeFile": "../../compose.dev.yml",
+  "dockerComposeFile": "../../compose.dev.yaml",
   "service": "backend",
   "workspaceFolder": "/app/backend",
 	"features": {
