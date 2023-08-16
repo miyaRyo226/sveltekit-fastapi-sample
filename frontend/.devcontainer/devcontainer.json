@@ -1,8 +1,8 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-	"name": "Untitled Node.js project",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"name": "Frontend",
+  "dockerComposeFile": "../../compose.dev.yml",
+  "service": "frontend",
+  "workspaceFolder": "/app/frontend",
   "remoteUser": "node"
 }

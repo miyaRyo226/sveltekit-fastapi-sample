@@ -1,0 +1,49 @@
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: frontend
+      dockerfile: .devcontainer/Dockerfile
+    tty: true
+    ports:
+      - 3000:3000
+    # volumes:
+    #   - type: bind
+    #     source: .
+    #     target: /app
+    networks:
+      - frontend-network
+      - backend-network
+
+  backend:
+    container_name: backend
+    tty: true
+    image: mcr.microsoft.com/devcontainers/python:1-3.11-bullseye
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    ports:
+      - 8080:8080
+    working_dir: /app
+    networks:
+      - frontend-network
+      - backend-network
+
+  database:
+    container_name: database
+    tty: true
+    image: postgres:15.4-alpine3.18
+    ports:
+      - 5432:5432
+    networks:
+      - backend-network
+      - database-network
+
+networks:
+  frontend-network:
+    internal: false
+  backend-network:
+    internal: false
+  database-network:
+    internal: true
