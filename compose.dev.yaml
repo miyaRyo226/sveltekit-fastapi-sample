@@ -10,7 +10,7 @@ services:
     volumes:
       - type: bind
         source: .
-        target: /app
+        target: /home/node/app
     networks:
       - frontend-network
       - backend-network
@@ -22,10 +22,9 @@ services:
     volumes:
       - type: bind
         source: .
-        target: /app
+        target: /home/vscode/app
     ports:
       - 8080:8080
-    working_dir: /app
     networks:
       - frontend-network
       - backend-network

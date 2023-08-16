@@ -5,7 +5,7 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "dockerComposeFile": "../../compose.dev.yaml",
   "service": "backend",
-  "workspaceFolder": "/app/backend",
+  "workspaceFolder": "/home/vscode/app/backend",
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {}
 	}

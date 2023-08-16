@@ -3,7 +3,7 @@
 	"name": "Frontend",
   "dockerComposeFile": "../../compose.dev.yaml",
   "service": "frontend",
-  "workspaceFolder": "/app/frontend",
+  "workspaceFolder": "/home/node/app/frontend",
 "remoteUser": "node",
 "customizations": {
 	"vscode": {
