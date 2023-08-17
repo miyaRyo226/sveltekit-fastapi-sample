@@ -11,6 +11,8 @@ services:
       - type: bind
         source: .
         target: /home/node/app
+    environment:
+      - AUTH_SECRET=${AUTH_SECRET}
     networks:
       - frontend-network
       - backend-network
