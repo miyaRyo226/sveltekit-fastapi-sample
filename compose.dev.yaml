@@ -25,6 +25,8 @@ services:
       - type: bind
         source: .
         target: /home/vscode/app
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
     ports:
       - 8080:8080
     networks:
