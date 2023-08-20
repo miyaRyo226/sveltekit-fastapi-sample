@@ -1,12 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Query
 from prisma import Prisma
+import uvicorn
 
 app = FastAPI()
 prisma = Prisma()
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
 
 @app.on_event("startup")
 async def startup():
