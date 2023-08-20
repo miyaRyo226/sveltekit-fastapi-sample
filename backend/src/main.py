@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from prisma import Prisma
+from .prisma import prisma
+from .routers import auth
 
-app = FastAPI()
-prisma = Prisma()
-
+app: FastAPI = FastAPI()
+app.include_router(auth.router)
 
 @app.on_event("startup")
 async def startup() -> None:

@@ -1,4 +1,4 @@
 package-add:
 	pip freeze > requirements.txt
 dev:
-	uvicorn main:app --reload
+	uvicorn src.main:app --reload
