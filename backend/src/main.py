@@ -1,15 +1,15 @@
-from fastapi import FastAPI,Query
+from fastapi import FastAPI
 from prisma import Prisma
-import uvicorn
 
 app = FastAPI()
 prisma = Prisma()
 
+
 @app.on_event("startup")
-async def startup():
-        await prisma.connect()
-        
-        
+async def startup() -> None:
+ await prisma.connect()
+
+
 @app.on_event("shutdown")
-async def shutdown():
-    await prisma.disconnect()
+async def shutdown() -> None:
+ await prisma.disconnect()

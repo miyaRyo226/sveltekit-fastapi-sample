@@ -2,30 +2,47 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
 	"name": "Python 3",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "dockerComposeFile": "../../compose.dev.yaml",
-  "service": "backend",
-  "workspaceFolder": "/home/vscode/app/backend",
-  "customizations": {
+	"dockerComposeFile": "../../compose.dev.yaml",
+	"service": "backend",
+	"workspaceFolder": "/home/vscode/app/backend",
+	"customizations": {
 	"vscode": {
-		"extensions": ["Prisma.prisma"]
+		"extensions": ["ms-python.python","Prisma.prisma","donjayamanne.git-extension-pack","oderwat.indent-rainbow","PKief.material-icon-theme","mosapride.zenkaku","shardulm94.trailing-spaces","KevinRose.vsc-python-indent","njpwerner.autodocstring","ms-python.vscode-pylance","ms-python.flake8","tamasfe.even-better-toml","usernamehw.errorlens","ms-python.black-formatter","EditorConfig.EditorConfig"],
+		"settings": {
+			"flake8.path": ["/home/vscode/app/backend/flake8"],
+			"python.languageServer": "Pylance",
+			"python.analysis.typeCheckingMode": "strict",
+			"[python]": {
+				"editor.defaultFormatter": "ms-python.black-formatter",
+    			"editor.formatOnSave": true,
+				"editor.codeActionsOnSave": {
+				"source.organizeImports": true
+    			}
+	},
+	"black-formatter.path": ["/usr/local/py-utils/bin/black"],
+	"python.analysis.inlayHints.functionReturnTypes": true,
+	"python.analysis.inlayHints.variableTypes": true,
+			"files.exclude": {
+				"**/.git": true,
+				"**/.svn": true,
+				"**/.hg": true,
+				"**/CVS": true,
+				"**/.DS_Store": true,
+				"**/Thumbs.db": true,
+				"**/__pycache__": true
+			},
+			"search.exclude": {
+				"**/node_modules": true,
+				"**/bower_components": true,
+				"**/*.code-search": true,
+				"**/__pycache__": true
+			}
+		}
 	}
   },
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {}
 	},
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip3 install --user -r requirements.txt",
-
-	// Configure tool-specific properties.
-	// "customizations": {},
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"postCreateCommand": "pip3 install --user -r requirements.txt && prisma generate",
 	"remoteUser": "root"
 }
